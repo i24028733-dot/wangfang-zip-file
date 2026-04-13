@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Shenzhen Old Town</title>
+    <!-- Use Google Fonts: Playfair Display for vintage elegance, Montserrat for modern clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* Ensure it strictly takes exactly one viewport */
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; 
+            background-color: #1a1a1a;
+        }
+
+        /* Full Screen Hero Section */
+        .hero-section {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Image path starts as requested */
+            background-image: url('./images/1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Warm Vintage Overlay to blend with urban/firework feeling */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(30, 20, 15, 0.4), /* Lighter top */
+                rgba(45, 25, 15, 0.8)  /* Darker warm vintage bottom */
+            );
+            z-index: 1;
+        }
+
+        /* Content Container */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #FAF4E8; /* Warm off-white */
+            padding: 0 2rem;
+            max-width: 900px;
+        }
+
+        /* Subtitle - Modern track */
+        .subtitle {
+            font-size: 1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #D4A373; /* Vintage orange/brown accent */
+            animation: fadeInDown 1.2s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Main Title - Vintage Serif */
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+            animation: fadeIn 1.5s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+
+        /* Description Paragraph */
+        .description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+            color: #E8E0D5;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.5s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        /* Ghost Button with Modern Glassmorphism touch */
+        .enter-btn {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #FAF4E8;
+            border: 1px solid rgba(212, 163, 115, 0.6);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: fadeInUp 1.5s ease-out 0.9s forwards;
+            opacity: 0;
+            position: relative;
+        }
+
+        /* Button Hover Effect */
+        .enter-btn:hover {
+            background: #D4A373;
+            border-color: #D4A373;
+            color: #1a1a1a;
+            font-weight: 500;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        /* Keyframes for entrance animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title { font-size: 3.2rem; }
+            .subtitle { font-size: 0.85rem; letter-spacing: 3px; }
+            .description { font-size: 1rem; margin-bottom: 2.5rem; }
+            .enter-btn { padding: 1rem 2.5rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .title { font-size: 2.5rem; }
+            .enter-btn { width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hero-section">
+        <div class="content-wrapper">
+            <h2 class="subtitle">The Essence of the City</h2>
+            <h1 class="title">Shenzhen Old Town</h1>
+            <p class="description">
+                Experience the authentic warmth, hidden alleys, and the vibrant fireworks of daily life.<br>
+                Step back into a time where tradition meets modern urban pulse.
+            </p>
+            <a href="index.html" class="enter-btn">Enter to Explore</a>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shenzhen Old Town | Home</title>
+    <!-- 引入字体 Playfair Display (复古) 和 Montserrat (现代) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========== 全局变量与 Reset ========== */
+        :root {
+            --bg-dark: #161412;
+            /* 极深暖调背景 */
+            --bg-light: #221E1B;
+            /* 次深暖调背景 */
+            --text-main: #F4EBE1;
+            /* 暖白主文字 */
+            --text-muted: #BFAEA0;
+            /* 柔和文字 */
+            --accent: #d4a373;
+            /* 复古金/橘色点缀 */
+            --border-color: rgba(212, 163, 115, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ========== 导航栏 (Navbar) ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(22, 20, 18, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* 极细分隔线 */
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links li a {
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--accent);
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100%;
+        }
+
+        /* ========== 轮播图 (Hero Slider) ========== */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* 温暖深色遮罩 */
+        .slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(22, 20, 18, 0.8) 0%, rgba(22, 20, 18, 0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: left;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5%;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            animation: fadeInUp 2s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        /* ========== 介绍老街 (Intro Section) ========== */
+        .section-padding {
+            padding: 8rem 5%;
+        }
+
+        .intro-section {
+            background-color: var(--bg-dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .intro-image {
+            position: relative;
+        }
+
+        .intro-image img {
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            filter: sepia(0.3) contrast(1.1) brightness(0.9);
+            /* 复古滤镜 */
+            transition: transform 0.5s ease;
+        }
+
+        .intro-image:hover img {
+            transform: scale(1.02);
+            filter: sepia(0) contrast(1.1) brightness(1);
+        }
+
+        .intro-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent);
+            z-index: -1;
+        }
+
+        .intro-text .sec-subtitle {
+            color: var(--accent);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text .sec-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .intro-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* ========== 烟火地图 (Map/Grid Section) ========== */
+        .map-section {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .map-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .map-header .sec-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            filter: brightness(0.7) sepia(0.2);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(15, 10, 5, 0.9) 0%, transparent 100%);
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-transform: capitalize;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            opacity: 0;
+            transition: opacity 0.4s ease 0.1s;
+        }
+
+        .map-card:hover img {
+            transform: scale(1.1);
+            filter: brightness(0.9) sepia(0);
+        }
+
+        .map-card:hover .card-content {
+            transform: translateY(0);
+        }
+
+        .map-card:hover .card-desc {
+            opacity: 1;
+        }
+
+        .map-button-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .btn-more {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--accent);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-more:hover {
+            color: var(--bg-dark);
+        }
+
+        .btn-more:hover::before {
+            width: 100%;
+        }
+
+        /* ========== 底部导航 (Footer) ========== */
+        .footer {
+            background-color: #0c0a09;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copyright {
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 2rem;
+        }
+
+        /* ========== 动画 ========== */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== 响应式 ========== */
+        @media (max-width: 900px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .map-header .sec-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            /* 移动端可以后期做汉堡菜单，这里先隐藏 */
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-padding {
+                padding: 5rem 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <a href="home.html" class="nav-logo">S·Z</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="oldStreet.html">Old Street</a></li>
+            <li><a href="culture.html">Culture</a></li>
+        </ul>
+    </nav>
+
+    <!-- 轮播图 (使用内联图片路径 ./images/2.jpg, 3.jpg, 4.jpg) -->
+    <header class="hero-slider" id="home">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: url('./images/2.jpg');"></div>
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('./images/3.jpg');"></div>
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('./images/4.jpg');"></div>
+
+        <div class="hero-content">
+            <div class="hero-subtitle">The Soul of Shenzhen</div>
+            <h1 class="hero-title">Where <br>Memories <br>Reside</h1>
+        </div>
+    </header>
+
+    <!-- 介绍深圳老街 -->
+    <section class="section-padding intro-section" id="old-street">
+        <div class="intro-image">
+            <img src="./images/5.jpg" alt="Shenzhen Old Street Vintage Alley">
+        </div>
+        <div class="intro-text">
+            <div class="sec-subtitle">History & Present</div>
+            <h2 class="sec-title">Discover the <br>True Vibe of the City</h2>
+            <p>Beneath the towering skyscrapers of Shenzhen lies the heartbeat of the old streets. It is a place where
+                time slows down, carrying the authentic taste of history, the warm laughter of neighbors, and the
+                mesmerizing aroma of street food.</p>
+            <p>Wandering through these historic alleys feels like opening a time capsule. Here, the essence of the city
+                is preserved—raw, beautiful, and deeply moving.</p>
+        </div>
+    </section>
+
+    <!-- 解锁老街烟火地图 -->
+    <section class="section-padding map-section" id="culture">
+        <div class="map-header">
+            <div class="sec-subtitle">Unlock</div>
+            <h2 class="sec-title">The Old Street Fireworks Map</h2>
+            <p>Unlock the hidden gems, traditional tea houses, and bustling night markets that form the cultural fabric
+                of old Shenzhen.</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- 卡片 1 -->
+            <div class="map-card">
+                <img src="./images/o1.jpg" alt="Night Market">
+                <div class="card-content">
+                    <h3 class="card-title">Futian Villaget</h3>
+                    <p class="card-desc">One of the few urban villages in Shenzhen that still preserves Lingnan-style
+                        arcade
+                        buildings.</p>
+                </div>
+            </div>
+            <!-- 卡片 2 -->
+            <div class="map-card">
+                <img src="./images/o2.jpg" alt="Ancient Architecture">
+                <div class="card-content">
+                    <h3 class="card-title">Dongmen Old Street</h3>
+                    <p class="card-desc">The oldest commercial street in Shenzhen. A century of history is hidden within
+                        its
+                        arcades and old shops.
+                    </p>
+                </div>
+            </div>
+            <!-- 卡片 3 -->
+            <div class="map-card">
+                <img src="./images/o3.jpg" alt="Tea House Culture">
+                <div class="card-content">
+                    <h3 class="card-title">Shekou Old Street</h3>
+                    <p class="card-desc">A coastal old neighborhood where fishing boats anchor by the shore, and the sea
+                        breeze mixes with the fresh scent of seafood.</p>
+                </div>
+            </div>
+        </div>
+        <div class="map-button-container">
+            <a href="oldStreet.html" class="btn-more">View More</a>
+        </div>
+    </section>
+
+    <!-- 底部导航 -->
+    <footer class="footer">
+        <h2 class="footer-logo">Shenzhen Old Town</h2>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="oldStreet.html">Old Street</a></li>
+            <li><a href="culture.html">Culture</a></li>
+        </ul>
+        <div class="footer-copyright">
+            &copy; 2024 Shenzhen Old Town Project. All rights reserved. Crafted with Vintage Soul.
+        </div>
+    </footer>
+
+    <!-- JavaScript 轮播逻辑 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            if (slides.length > 0) {
+                // 每 5 秒切换一次轮播图
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+
+</html>
