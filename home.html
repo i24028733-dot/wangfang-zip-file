@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome | Shenzhen Old Town</title>
     <!-- Use Google Fonts: Playfair Display for vintage elegance, Montserrat for modern clean look -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <style>
         /* CSS Reset */
         * {
@@ -19,7 +22,7 @@
             /* Ensure it strictly takes exactly one viewport */
             width: 100vw;
             height: 100vh;
-            overflow: hidden; 
+            overflow: hidden;
             background-color: #1a1a1a;
         }
 
@@ -42,12 +45,16 @@
         .hero-section::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(30, 20, 15, 0.4), /* Lighter top */
-                rgba(45, 25, 15, 0.8)  /* Darker warm vintage bottom */
-            );
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom,
+                    rgba(30, 20, 15, 0.4),
+                    /* Lighter top */
+                    rgba(45, 25, 15, 0.8)
+                    /* Darker warm vintage bottom */
+                );
             z-index: 1;
         }
 
@@ -56,7 +63,8 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            color: #FAF4E8; /* Warm off-white */
+            color: #FAF4E8;
+            /* Warm off-white */
             padding: 0 2rem;
             max-width: 900px;
         }
@@ -67,7 +75,8 @@
             letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
-            color: #D4A373; /* Vintage orange/brown accent */
+            color: #D4A373;
+            /* Vintage orange/brown accent */
             animation: fadeInDown 1.2s ease-out forwards;
             opacity: 0;
         }
@@ -79,7 +88,7 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 2rem;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+            text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.6);
             animation: fadeIn 1.5s ease-out 0.3s forwards;
             opacity: 0;
         }
@@ -91,7 +100,7 @@
             line-height: 1.8;
             margin-bottom: 3.5rem;
             color: #E8E0D5;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
             animation: fadeInUp 1.5s ease-out 0.6s forwards;
             opacity: 0;
         }
@@ -122,37 +131,89 @@
             color: #1a1a1a;
             font-weight: 500;
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
 
         /* Keyframes for entrance animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .title { font-size: 3.2rem; }
-            .subtitle { font-size: 0.85rem; letter-spacing: 3px; }
-            .description { font-size: 1rem; margin-bottom: 2.5rem; }
-            .enter-btn { padding: 1rem 2.5rem; }
+            .title {
+                font-size: 3.2rem;
+            }
+
+            .subtitle {
+                font-size: 0.85rem;
+                letter-spacing: 3px;
+            }
+
+            .description {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .enter-btn {
+                padding: 1rem 2.5rem;
+            }
         }
-        
+
         @media (max-width: 480px) {
-            .title { font-size: 2.5rem; }
-            .enter-btn { width: 100%; box-sizing: border-box; }
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .enter-btn {
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBHHPE6P89"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-RBHHPE6P89');
+    </script>
 </head>
+
 <body>
 
     <main class="hero-section">
@@ -168,4 +229,5 @@
     </main>
 
 </body>
+
 </html>
