@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wang Fang · Personal Portfolio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:"Helvetica Neue",Arial,sans-serif;background:#eef8f6;color:#24403d;overflow:hidden}
+.page{position:absolute;inset:0;display:none;flex-direction:column;padding:6vh 8vw;background:#f5fbfa;overflow:auto}
+.page.on{display:flex}
+.dark{background:#1f3a4d;color:#f4fffd}
+.page h2{position:relative;padding-bottom:14px}
+.page h2::after{content:"";position:absolute;left:0;bottom:0;width:56px;height:3px;background:#d9a441}
+.tag{font-size:12px;letter-spacing:.25em;color:#b7791f;text-transform:uppercase;margin-bottom:10px;font-weight:600}
+h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(38px,6vw,84px);line-height:1.05}
+h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(28px,4vw,52px);margin-bottom:22px}
+h3{font-size:20px;margin:14px 0 8px;color:#1f5f58}
+p,li{font-size:15px;line-height:1.75}
+.ph{background:#fbf3e4;border:1px dashed #d9a441;display:flex;align-items:center;justify-content:center;color:#3f7f78;font-size:13px;min-height:160px;text-align:center;padding:12px}
+.row{display:grid;gap:18px}
+.two{grid-template-columns:1fr 1fr}
+.three{grid-template-columns:repeat(3,1fr)}
+.btn{display:inline-block;margin-top:18px;padding:12px 22px;background:#1f5f58;color:#ffffff;border:0;cursor:pointer;font-size:15px;text-decoration:none;align-self:flex-start}
+.btn:hover{background:#174a45}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:880px}
+.toc button{text-align:left;padding:20px;background:#ffffff;border:0;border-left:4px solid #d9a441;box-shadow:0 1px 3px rgba(31,95,88,.12);cursor:pointer;font-size:17px}
+.toc button:hover{background:#fbf3e4}
+.toc small{display:block;color:#3f7f78;font-size:12px;margin-top:4px}
+.back{margin-top:auto;align-self:flex-start;padding:8px 14px;background:transparent;border:1px solid #d9a441;color:#24403d;cursor:pointer;font-size:13px}
+.proj{border-top:1px solid #e6c98a;padding:18px 0}
+.meta{font-size:13px;color:#3f7f78;margin-bottom:10px}
+.tl{border-left:2px solid #d9a441;padding-left:16px;margin-top:8px}
+.tl div{margin-bottom:10px}
+.bm{position:fixed;right:0;top:40%;display:flex;flex-direction:column;gap:4px;z-index:5}
+.bm button{writing-mode:vertical-rl;padding:10px 6px;background:#1f5f58;border-left:3px solid #d9a441;color:#ffffff;border:0;cursor:pointer;font-size:12px}
+.bm button:hover{background:#174a45}
+</style></head><body>
+
+<!-- 1 Cover -->
+<section class="page on dark" id="cover">
+  <div class="tag">Digital Media · INTI International University</div>
+  <h1>Wang Fang</h1>
+  <p style="margin-top:18px;font-size:18px;color:#d4f2ec">Personal Portfolio · Digital Media</p>
+  <p style="margin-top:10px;color:#bfe9e1;font-style:italic">“Stories told through the lens, the screen and the street.”</p>
+  
+  <button class="btn" onclick="go('toc')">Start exhibition</button>
+</section>
+
+<!-- 2 Contents -->
+<section class="page" id="toc">
+  <div class="tag">Contents</div>
+  <h2>Contents</h2>
+  <div class="toc">
+    <button onclick="go('about')">01 About me<small>Introduction, skills and goals</small></button>
+    <button onclick="go('p1')">02 Project 1<small>Where Memories Reside</small></button>
+    <button onclick="go('p2')">03 Project 2<small>Negeri Sembilan Fencing Association Instagram Account Operation</small></button>
+    <button onclick="go('p3')">04 Project 3<small>Chinese Students Association WeChat</small></button>
+    <button onclick="go('skills')">05 Skills & Growth<small>Skills and growth reflection</small></button>
+    <button onclick="go('ethics')">06 Digital Identity & Ethics<small>Credits, copyright and privacy</small></button>
+    <button onclick="go('credits')">07 Credits & Contact<small>Thanks and contact</small></button>
+  </div>
+</section>
+
+<!-- 3 About -->
+<section class="page" id="about">
+  <div class="tag">About me</div>
+  <h2>Wang Fang</h2>
+  <div class="row two">
+    <div>
+      <p><b>Major:</b> Digital Media · <b>University:</b> INTI International University</p>
+      <p><b>Contact:</b> +60 11-2783 9893</p>
+      <h3>Skills</h3>
+      <p>Lightroom · Premiere Pro · Photoshop · Visual layout · Social media operation · Article writing · Basic web publishing (GitHub Pages)</p>
+      <h3>Interests</h3>
+      <p>Street photography, documentary storytelling, sports and community culture.</p>
+      <h3>Goals</h3>
+      <p>Social media content creator</p>
+    </div>
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/IMG_8316.jpg" alt="Wang Fang portrait" style="width:100%;max-width:340px;height:auto;display:block">
+  </div>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Project 1 -->
+<section class="page" id="p1">
+  <div class="tag">Project 1 · Portfolio project</div>
+  <h2>Where Memories Reside: Discover the Hidden Soul of Shenzhen Old Town</h2>
+  <div class="meta">Role: Solo, built the website independently · Date: 2026.04.17 · Tools: GitHub Pages, street photography, copywriting, QR code generator</div>
+  <h3>Project Background</h3>
+  <p>Shenzhen is widely known for skyscrapers and fast-paced modern development. Its old urban areas and alleyways carry authentic local memories that are often overlooked. This project uncovers the grassroots, human-centred side of Shenzhen through a casual walking guide of old-town streets.</p>
+  <div class="row two">
+    <div>
+      <h3>Creative Process</h3>
+      <ol style="padding-left:20px">
+        <li>Researched old-town streets and collected documentary street photography of daily urban life.</li>
+        <li>Planned content and wrote descriptive copy focused on local atmosphere rather than travel tips.</li>
+        <li>Designed muted layouts and typefaces to match the raw, realistic feeling of the photos.</li>
+        <li>Built a scrolling single-page website on GitHub Pages (cover, introduction, street recommendations) and generated a QR code linking to it.</li>
+      </ol>
+    </div>
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/wang%20fang_%E5%89%AF%E6%9C%AC.png" alt="Shenzhen QR project" style="width:100%;height:auto;display:block">
+  </div>
+  <h3>Final Outcome</h3>
+  <p>An immersive web-based walking guide hosted on GitHub Pages. Viewers scan the QR code to open the site and explore the forgotten human charm of Shenzhen's old neighbourhoods.</p>
+  <p>QR: scan the code above to visit the project page.</p>
+  <h3>Reflection</h3>
+  <p><b>Done well:</b> chose a less-popular perspective; visuals and tone create a consistent, gentle atmosphere; QR code makes online work easy to reach from a static PDF.<br>
+  <b>To improve:</b> add interactive elements such as location markers or short resident stories; more diverse shooting angles.</p>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Project 2 -->
+<section class="page" id="p2">
+  <div class="tag">Project 2 · Portfolio project</div>
+  <h2>Negeri Sembilan Fencing Association Instagram Account Operation</h2>
+  <div class="meta">My Role: Edit together with two partners · Platform: Instagram · Date: 2026.07.20 · Tools: Lightroom, Premiere Pro</div>
+  <h3>Project Background</h3>
+  <p>The Negeri Sembilan Fencing Association needed an official Instagram page to share competitions, athlete updates and behind-the-scenes content. It targets sports fans, parents and partners across Malaysia.</p>
+  <div class="row two">
+    <div>
+      <h3>Creative Process</h3>
+      <ol style="padding-left:20px">
+        <li>Shot live competition footage and behind-the-scenes documentary photos at the fencing arena.</li>
+        <li>Edited photos in Lightroom and cut highlight reels in Premiere Pro for Instagram feed and Reels.</li>
+        <li>Wrote English captions, added hashtags, published posts, and adjusted direction from likes and comments.</li>
+      </ol>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0">
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/596.jpg" alt="Project 2 field photo" style="width:100%;height:auto;display:block;border-radius:6px">
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/IMG_2894%202.PNG" alt="Project 2 Instagram result" style="width:100%;height:auto;display:block;border-radius:6px">
+  </div>
+  <h3>Final Outcome</h3>
+  <p>A fully operated Instagram account with steady follower growth, top competition reels reaching over 110 likes, and more than 700 new followers, strengthening the association's brand in the local sports community.</p>
+  <p>Original Source: https://www.instagram.com/reel/DaKOZSMy4K3/?stkn=MTNpcHhwdXNpc3l3Mg==</p>
+  <h3>Reflection</h3>
+  <p><b>Done well:</b> learned the full workflow of overseas social media content, from shooting and editing to community management; became familiar with Instagram algorithms and audience habits.<br>
+  <b>To improve:</b> test more short, fast-paced Reel formats to attract younger viewers.</p>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Project 3 -->
+<section class="page" id="p3">
+  <div class="tag">Project 3 · Portfolio project</div>
+  <h2>WeChat Official Account, Chinese Students Association in Malaysia</h2>
+  <div class="meta">My Role: Photography · Platform: WeChat Official Account · Date: 2025.11.18 · Tools: Photoshop</div>
+  <h3>Project Background</h3>
+  <p>This official WeChat account serves thousands of Chinese students studying in Malaysia, releasing event announcements and sharing cultural stories. The goal is engaging articles and visuals that unite students and strengthen community.</p>
+  <div class="row two">
+    <div>
+      <h3>Creative Process</h3>
+      <ol style="padding-left:20px">
+        <li>Planned and wrote original event recap articles for film sharing, football tournaments and Spring Festival galas.</li>
+        <li>Made custom covers and illustrations for each post under consistent visual rules.</li>
+        <li>Typeset and published articles, tracked reading and sharing data, and refined later posts.</li>
+      </ol>
+    </div>
+    <div>
+      <p>Original Source: https://mp.weixin.qq.com/s/fsk8Gff8DvYcocYQK5dd5w</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0">
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/IMG_5400.jpg" alt="WeChat article screenshot" style="width:100%;height:auto;display:block;border-radius:6px">
+    <img src="https://cdn.jsdelivr.net/gh/i24028733-dot/wangfang-zip-file@main/IMG_4272.jpg" alt="Project 3 photo" style="width:100%;height:auto;display:block;border-radius:6px">
+  </div>
+  <h3>Final Outcome</h3>
+  <p>22 original articles completed. Monthly reading volume rose by 28%. Featured football and Spring Festival posts gained over 1,200 views. Reusable cover and article templates now simplify future production.</p>
+  <h3>Reflection</h3>
+  <p><b>Done well:</b> turned offline student activities into online content for Chinese readers; learned to deliver cross-cultural student events online.<br>
+  <b>To improve:</b> add interactive elements such as embedded short videos and photo galleries.</p>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Skills -->
+<section class="page" id="skills">
+  <div class="tag">Skills and Growth Reflection</div>
+  <h2>Skills and Growth Reflection</h2>
+  <p>During my study and hands-on project practice, I have developed both technical and soft-skill abilities. At first, I only owned basic photography and simple photo editing skills. Through individual and group real-world projects, I gained experience in content creation, social media management and visual design.</p>
+  <h3>Technical growth</h3>
+  <p>I can shoot, select and retouch photographs in Photoshop. With CapCut, I edit short highlight videos, add subtitles and export clips for social media platforms. I use Canva to design event posters and reusable visual templates. I also learned to create simple web exhibitions and generate QR codes to display online creative work.</p>
+  <h3>Practical &amp; soft-skill growth</h3>
+  <p>The Negeri Sembilan Fencing Association Instagram project strengthened my English copywriting, hashtag planning and on-site documentary shooting. For the Malaysia Chinese Students Association WeChat Official Account, I practised content planning, event photography, layout design and reading data analysis. I learned to adapt visuals for target audiences and cooperate with teammates under tight assignment deadlines.</p>
+  <h3>Challenges &amp; future improvement</h3>
+  <p>A common challenge is sorting large volumes of raw materials and picking suitable portfolio pieces. I sometimes over-refine visual details and reduce overall efficiency. Moving forward, I want to improve web-based interactive design, explore more short-video storytelling styles and deepen cross-cultural social-media content strategies.</p>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Ethics -->
+<section class="page" id="ethics">
+  <div class="tag">Credits, Copyright &amp; Digital Identity Ethics</div>
+  <h2>Credits, Copyright &amp; Digital Identity Ethics</h2>
+  <p>All portrait, landscape and event photos are original works photographed by Wang Fang. Self-created deliverables include Instagram short clips, WeChat graphic materials, the CMFC football poster and the Shenzhen Old-Town web guide project.</p>
+  <p>Third-party organisation logos (Negeri Sembilan Fencing Association, China Students and Scholars Association in Malaysia) appear only for academic project demonstration; copyright belongs to the respective organisations. Decorative icons are free educational-licensed assets from Canva. No unauthorised stock images are used.</p>
+  <p>AI tools are only used for minor English-grammar polishing. All photography, layout, creative concepts and copywriting are my original work. No core visual assets are AI-generated.</p>
+  <p>I respect portrait rights for all photographed subjects. This portfolio is made exclusively for COM4236 course assessment and is non-commercial. All QR codes and hyperlinks lead to authorised public project pages.</p>
+  <button class="back" onclick="go('toc')">Back to contents</button>
+</section>
+
+<!-- Credits -->
+<section class="page dark" id="credits">
+  <div class="tag">Credits &amp; Contact</div>
+  <h2>Thank you</h2>
+  <p>Thank you for viewing Wang Fang's personal resume PDF.</p>
+  <h3 style="margin-top:28px">Contact</h3>
+  <p>Phone / WhatsApp: +60 11-2783 9893<br>Email: fangw7647@gmail.com</p>
+  <button class="back" onclick="go('toc')" style="color:#ffffff;border-color:#ffffff">Back to contents</button>
+</section>
+
+<nav class="bm">
+  <button onclick="go('cover')">Cover</button>
+  <button onclick="go('toc')">Contents</button>
+  <button onclick="go('about')">About</button>
+  <button onclick="go('p1')">Project 1</button>
+  <button onclick="go('p2')">Project 2</button>
+  <button onclick="go('p3')">Project 3</button>
+  <button onclick="go('skills')">Skills</button>
+  <button onclick="go('ethics')">Ethics</button>
+  <button onclick="go('credits')">Credits</button>
+</nav>
+
+<script>
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===id));window.scrollTo(0,0);}
+</script>
+</body></html>
